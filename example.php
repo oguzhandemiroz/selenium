@@ -1,34 +1,21 @@
 <?php
-/*
-Copyright 2011 3e software house & interactive agency
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-
+// Sample WebDriver code - search Google for "Selenium is awesome" and take
+// a screenshot.
+// You need three things to run this code:
+// 1. A copy of chromedriver (from the Selenium downloads.)
+// 2. The standalone Selenium server v2.0 running with
+//    -Dwebdriver.chrome.driver=${PATH_TO_CHROMEDRIVER}
+// 3. A copy of http://code.google.com/p/php-webdriver-bindings/ checked out.
+//require_once "..phpwebdriver/WebDriver.php";
 require_once "phpwebdriver/WebDriver.php";
+require_once "functions/function.php";
+$timestamp = time();
+//$browsers = array("chrome", "firefox");
+//foreach($browsers as $browser) {
 $webdriver = new WebDriver("localhost", "4444");
 $webdriver->connect();
-$webdriver->get("http://www.shoppbagg.com/");
-//$webdriver->execute('alert("Hello")', '');
-$guray = $webdriver->executeScript("return sQuery('.sp-custom-26-1449703130069').text()",array());
-echo $guray;
-//echo uniqid();
-$tmp_filename = "/Users/gurayinan/Desktop/screenshot.png";
-$result = $this->webdriver->getScreenshotAndSaveToFile($tmp_filename);
-$this->assertTrue(file_exists($tmp_filename));
-$this->assertTrue(filesize($tmp_filename)>100);
-unlink($tmp_filename);
-//$webdriver->executeScript("return alert('fuck this shit')",array());
-sleep(5);
-?>
+$webdriver->get("http://shoppbagg.com/");
+$functions=new functions();
+$functions->waitForCamp();
+$webdriver->getScreenshotAndSaveToFile("shoppbagg.png");
+//}
