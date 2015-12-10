@@ -21,5 +21,4 @@ $webdriver = new WebDriver("localhost", "4444");
 $webdriver->connect();
 $webdriver->get("http://www.defacto.com.tr/");
 sleep(5);
-
 ?>
