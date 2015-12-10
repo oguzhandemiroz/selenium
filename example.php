@@ -7,15 +7,21 @@
 //    -Dwebdriver.chrome.driver=${PATH_TO_CHROMEDRIVER}
 // 3. A copy of http://code.google.com/p/php-webdriver-bindings/ checked out.
 //require_once "..phpwebdriver/WebDriver.php";
-require_once "phpwebdriver/WebDriver.php";
-require_once "functions/function.php";
+require_once "function.php";
 $timestamp = time();
 //$browsers = array("chrome", "firefox");
 //foreach($browsers as $browser) {
 $webdriver = new WebDriver("localhost", "4444");
 $webdriver->connect();
 $webdriver->get("http://shoppbagg.com/");
-$functions=new functions();
-$functions->waitForCamp();
+$a = 1;
+while($a == 1){
+     $result=$webdriver->executeScript("return sQuery('.sp-advanced-css-69').exists()",array());
+     if($result){
+          echo "bitti";
+          $a = 2;
+     }
+}
+sleep(1);
 $webdriver->getScreenshotAndSaveToFile("shoppbagg.png");
 //}
