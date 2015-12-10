@@ -19,6 +19,16 @@ limitations under the License.
 require_once "phpwebdriver/WebDriver.php";
 $webdriver = new WebDriver("localhost", "4444");
 $webdriver->connect();
-$webdriver->get("http://www.defacto.com.tr/");
+$webdriver->get("http://www.shoppbagg.com/");
+//$webdriver->execute('alert("Hello")', '');
+$guray = $webdriver->executeScript("return sQuery('.sp-custom-26-1449703130069').text()",array());
+echo $guray;
+//echo uniqid();
+$tmp_filename = "/Users/gurayinan/Desktop/screenshot.png";
+$result = $this->webdriver->getScreenshotAndSaveToFile($tmp_filename);
+$this->assertTrue(file_exists($tmp_filename));
+$this->assertTrue(filesize($tmp_filename)>100);
+unlink($tmp_filename);
+//$webdriver->executeScript("return alert('fuck this shit')",array());
 sleep(5);
 ?>
