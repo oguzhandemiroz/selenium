@@ -36,6 +36,8 @@ class WebDriver extends WebDriverBase {
     public function connect($browserName="firefox", $version="", $caps=array()) {
         $request = $this->requestURL . "/session";
         $session = $this->curlInit($request);
+        curl_setopt($session, CURLOPT_HEADER, true);
+
     $allCaps =
         array_merge(
               array(
@@ -50,10 +52,9 @@ class WebDriver extends WebDriverBase {
         );
     $params = array( 'desiredCapabilities' =>	$allCaps );
     $postargs = json_encode($params);
-        $this->preparePOST($session, $postargs);
-        curl_setopt($session, CURLOPT_HEADER, true);
-        $rawResponse = curl_exec($session);
-        $header = curl_getinfo($session);
+    $this->preparePOST($session, $postargs);
+    $rawResponse = curl_exec($session);
+    $header = curl_getinfo($session);
 	/* new way to retrieve sessionId from response in selenium 2.35.0 */
 	list($headers, $content) = explode("\r\n\r\n", $rawResponse, 2);
 	$jsonResponse = json_decode($content);

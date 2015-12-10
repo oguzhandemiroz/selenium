@@ -14,11 +14,6 @@ $timestamp = time();
     $webdriver = new WebDriver("localhost", "4444");
     $webdriver->connect();
     $webdriver->get("http://google.com");
-    $element = $webdriver->findElementBy(LocatorStrategy::name, "q");
-    $element->sendKeys(array("selenium is awesome"));
-    $element->submit();
-    sleep(2);
-    $webdriver->getScreenshotAndSaveToFile("the_google_${browser}_${timestamp}.png");
     $webdriver->close();
 //}
 //

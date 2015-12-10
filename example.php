@@ -8,12 +8,9 @@
 // 3. A copy of http://code.google.com/p/php-webdriver-bindings/ checked out.
 //require_once "..phpwebdriver/WebDriver.php";
 require_once "phpwebdriver/WebDriver.php";
-//$browsers = array("chrome", "firefox");
-//foreach($browsers as $browser) {
-    $webdriver = new WebDriver("localhost", "4444");
-    $webdriver->connect("firefox");
-    $webdriver->get("http://google.com");
-    $webdriver->close();
-//}
-//
+require_once "functions/function.php";
+
+$testCase = new allFunctions();
+
+$testCase->campTest();
 ?>
