@@ -21,3 +21,5 @@ $timestamp = time();
     $webdriver->getScreenshotAndSaveToFile("the_google_${browser}_${timestamp}.png");
     $webdriver->close();
 //}
+//
+?>

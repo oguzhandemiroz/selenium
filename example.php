@@ -8,14 +8,12 @@
 // 3. A copy of http://code.google.com/p/php-webdriver-bindings/ checked out.
 //require_once "..phpwebdriver/WebDriver.php";
 require_once "phpwebdriver/WebDriver.php";
-require_once "functions/function.php";
-$timestamp = time();
 //$browsers = array("chrome", "firefox");
 //foreach($browsers as $browser) {
-$webdriver = new WebDriver("localhost", "4444");
-$webdriver->connect();
-$webdriver->get("http://shoppbagg.com/");
-$functions=new functions();
-$functions->waitForCamp();
-$webdriver->getScreenshotAndSaveToFile("shoppbagg.png");
+    $webdriver = new WebDriver("localhost", "4444");
+    $webdriver->connect("firefox");
+    $webdriver->get("http://google.com");
+    $webdriver->close();
 //}
+//
+?>
