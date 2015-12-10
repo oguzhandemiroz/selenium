@@ -18,8 +18,6 @@ class allFunctions{
         $this->webDriver->get("http://shoppbagg.com");
         $this->waitForCamp();
         $this->webDriver->getScreenshotAndSaveToFile("shoppbagg.png");
-        return "screenshot taken";
-
     }
 
     function waitForCamp(){
