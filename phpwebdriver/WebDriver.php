@@ -610,6 +610,13 @@ class WebDriver extends WebDriverBase {
 		$zip->close();
 	    return base64_encode($zipFile);
 	}
+    //insider aittir
+    public function test(){
+        sleep(5);
+        $result=$this->executeScript("return sQuery('.sp-advanced-css-69').exists()",array());
+        var_dump($result);
+        $this->executeScript("return alert(5)",array());
+    }
 	
 }
 
