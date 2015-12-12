@@ -14,6 +14,7 @@ class allFunctions{
 
     function campTest(){
 
+
         $this->webDriver->connect();
         $this->webDriver->get("http://shoppbagg.com");
         $this->waitForCamp();
@@ -32,5 +33,6 @@ class allFunctions{
         }
         sleep(1);
     }
+
 }
 ?>
